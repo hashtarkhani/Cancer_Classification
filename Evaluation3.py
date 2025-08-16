@@ -2,14 +2,12 @@
 """
 Created on Wed Aug 13 13:26:41 2025
 
-@author: shash
+@author: Soheil Hashtarkhani
 """
-
 import os
 import numpy as np
 import pandas as pd
 from sklearn.metrics import f1_score
-
 # --------------------------
 # Settings
 # --------------------------
@@ -21,7 +19,7 @@ ALPHA = 0.05             # For 95% CIs
 # Load data
 # --------------------------
 print("Current Working Directory:", os.getcwd())
-data0 = pd.read_csv("FinalResults2.csv")
+data0 = pd.read_csv("FinalResults2.csv") # CSV file showing preicted disgnosis by each model and real diagnosis
 data0.info()
 
 # Stratify: ICD-coded (False) vs FreeText (True)
@@ -191,5 +189,6 @@ export_df = pd.DataFrame({
 export_df = export_df.round(4)
 
 # Save to CSV
-export_filename = f"evaluation_F1_FreeText.csv"
+export_filename = f"evaluation_FreeText.csv"
+
 export_df.to_csv(export_filename, index=False)
